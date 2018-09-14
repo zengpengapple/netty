@@ -35,6 +35,8 @@ public class TimeClientHandler extends ChannelHandlerAdapter{
 	        ctx.close();
 	    }
 	
-	
+	public void test001() {
+		
+	}
 }
 
