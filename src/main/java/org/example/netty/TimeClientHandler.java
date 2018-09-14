@@ -36,7 +36,7 @@ public class TimeClientHandler extends ChannelHandlerAdapter{
 	    }
 	    
 	    
-	    public void test001() {
+	    public void test002() {
 	    	
 	    }
 	
