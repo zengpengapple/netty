@@ -34,14 +34,7 @@ public class TimeClientHandler extends ChannelHandlerAdapter{
 	        cause.printStackTrace();
 	        ctx.close();
 	    }
-	    
-	    
-	    public void test001() {
-	    	
-	    }
 	
-	public void test001() {
-		
-	}
+	
 }
 
