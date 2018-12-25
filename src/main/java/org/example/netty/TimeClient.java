@@ -24,7 +24,6 @@ public class TimeClient {
 		String str ="127.0.0.1";
 		String abc ="127.0.0.1";
 		String a = "hello";
-		String b = "hello";
 		String c = "hello";
 		String host ="127.0.0.1";
 		int port = 8080;
