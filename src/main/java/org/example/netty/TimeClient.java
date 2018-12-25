@@ -5,7 +5,7 @@
  * Date:2018年7月19日下午6:00:05
  * Copyright (c) 2018, zengpengapple@qq.com All Rights Reserved.
  *
-*/
+ */
 
 package org.example.netty;
 
@@ -20,34 +20,34 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 
 public class TimeClient {
 
-	 public static void main(String[] args) throws Exception {
-		    String str ="127.0.0.1";
-            String abc ="127.0.0.1";
-            String a = "hello";
-	        String host ="127.0.0.1";
-	        int port = 8080;
-	        EventLoopGroup workerGroup = new NioEventLoopGroup();
+	public static void main(String[] args) throws Exception {
+		String str ="127.0.0.1";
+		String abc ="127.0.0.1";
+		String a = "hello";
+		String host ="127.0.0.1";
+		int port = 8080;
+		EventLoopGroup workerGroup = new NioEventLoopGroup();
 
-	        try {
-	            Bootstrap b = new Bootstrap(); // (1)
-	            b.group(workerGroup); // (2)
-	            b.channel(NioSocketChannel.class); // (3)
-	            b.option(ChannelOption.SO_KEEPALIVE, true); // (4)
-	            b.handler(new ChannelInitializer<SocketChannel>() {
-	                @Override
-	                public void initChannel(SocketChannel ch) throws Exception {
-	                    ch.pipeline().addLast(new TimeClientHandler());
-	                }
-	            }); 
+		try {
+			Bootstrap b = new Bootstrap(); // (1)
+			b.group(workerGroup); // (2)
+			b.channel(NioSocketChannel.class); // (3)
+			b.option(ChannelOption.SO_KEEPALIVE, true); // (4)
+			b.handler(new ChannelInitializer<SocketChannel>() {
+				@Override
+				public void initChannel(SocketChannel ch) throws Exception {
+					ch.pipeline().addLast(new TimeClientHandler());
+				}
+			});
 
-	            // 启动客户端
-	            ChannelFuture f = b.connect(host, port).sync(); // (5)
+			// 启动客户端
+			ChannelFuture f = b.connect(host, port).sync(); // (5)
 
-	            // 等待连接关闭
-	            f.channel().closeFuture().sync();
-	        } finally {
-	            workerGroup.shutdownGracefully();
-	        }
-	    }
+			// 等待连接关闭
+			f.channel().closeFuture().sync();
+		} finally {
+			workerGroup.shutdownGracefully();
+		}
+	}
 }
 
